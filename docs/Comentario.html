@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Comentario.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Feedback</title>
+</head>
+
+<body>
+
+     <header>
+    <nav class="navbar">
+      <div class="logo">COCA COLA <span>ZERO</span></div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="Formulario.html">Formulario</a></li>
+        <li><a href="Tabela.html">Tabela</a></li>
+        <li><a href="Comentario.html">Comentario</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="dropdown-responsive">
+    <button class="btn-menu" id="btn-menu" type="button">
+      <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
+        <line x1="5" y1="7" x2="19" y2="7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+        <line x1="5" y1="12" x2="19" y2="12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+        <line x1="5" y1="17" x2="19" y2="17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <div class="menu-fullscreen" id="menu-fullscreen">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="Formulario.html">Formulario</a></li>
+        <li><a href="Tabela.html">Tabela</a></li>
+        <li><a href="Comentario.html">Comentario</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <br>
+
+    <main class="container">
+        <section class="card">
+            <h1>Deixe seu feedback</h1>
+            <p class="lead">Sua opinião é muito importante!</p>
+
+            <form id="feedbackForm">
+                <div class="field">
+                    <label for="message">Comentário *</label>
+                    <textarea id="message" rows="5" placeholder="Digite seu comentário aqui..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar</button>
+
+                <p id="statusMessage" class="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("feedbackForm");
+const messageInput = document.getElementById("message");
+const statusMessage = document.getElementById("statusMessage");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault(); // impede recarregar a página
+
+  if(messageInput.value.trim() === ""){
+    statusMessage.textContent = "Digite um comentário antes de enviar.";
+    statusMessage.style.color = "red";
+    return;
+  }
+
+  // Mostra mensagem de sucesso
+  statusMessage.textContent = "Comentário enviado! Obrigado pelo feedback.";
+  statusMessage.style.color = "green";
+
+  // Limpa o campo
+  form.reset();
+});
+    </script>
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+</style>
+
+</body>
+
+</html>
